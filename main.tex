@@ -1,0 +1,67 @@
+\documentclass{rice_report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+% The following arguments are compulsory and must be present
+\title{Název}
+\author{Autor}
+\releasedate{23. 9. 2025}
+\department{RICE}
+\rtype{Řešitelé}
+\leader{Hlavní řešitel}
+\reportdedication{Tato zpráva vznikla s podporou projektu No. XXX.}
+\customer{Zákazník}
+\support{Kontaktní osoba \\ \texttt{email@fel.zcu.cz}}
+% The following arguments are optional and can be deleted.
+\rrnumber{123}
+\classification{1.2.3}
+
+\abstract{Anotace.}
+
+\keywords{Klíčová slova.}
+
+\titleen{Název v angličtině.}
+
+\abstracten{Anotace v angličtině..}
+
+\keywordsen{Klíčová slova v angličtině.}
+
+\usepackage{mwe}
+
+\begin{document}
+
+% Comment out the required language
+\setczlang
+% \setenlang
+
+\maketitle
+\makesecpage
+
+\tableofcontents
+
+\section{Úvod}
+
+Toto je text výzkumné zprávy. \cref{table:test} ukazuje
+
+\begin{figure}[!ht]
+\includegraphics[width=3cm]{example-image-a}
+\caption{???}
+\label{???}
+\end{figure}
+
+\section{Oddíl}
+
+\subsection{Oddíl 1}
+
+Text.
+
+\subsection{Oddíl 2}
+
+Text.
+
+\begin{thebibliography}{9}
+\bibitem{key1} Author, \emph{Title}, Publisher, Year.
+\end{thebibliography}
+
+\end{document}
