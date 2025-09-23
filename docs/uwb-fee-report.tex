@@ -1,0 +1,83 @@
+% !TeX program = pdflatex
+% !TEX encoding = UTF-8
+
+\documentclass[11pt, aspectratio=169]{beamer}
+
+\usepackage[sfdefault]{roboto}
+\usepackage[T1]{fontenc}
+\usepackage[czech, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=fel_blue}
+
+% Uncomment to use Czech/English in slide backgrounds
+\def\cslang{}
+
+% Uncomment to use FEL/RICE background
+\def\ricemode{}
+
+% Uncomment to remove the bottom-left FEL text
+%\def\nologo{}
+
+\mode<presentation>{\usepackage{./style/beamerthemeRice}}
+\setbeamertemplate{navigation symbols}{}
+
+% Setup metadata, all but title and author may be commented out
+\title[]{Západočeská Univerzita v Plzni \\ Fakulta Elektrotechnická}
+\author{Lukáš Adam}
+\date{23. 9. 2025}
+\subtitle{Návod pro šablonu reportu v Latexu}
+\mail{adamluk3@fel.zcu.cz}
+%\phone{+420 000 000 000}
+%\web{www.myweb.com}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Here you can start write your presentation
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+
+\begin{frame}
+	\maketitle
+\end{frame}
+
+
+
+\begin{frame}{Instalace + Návrhy vylepšení}
+Existují dvě možnosti instalace šablony:
+\begin{itemize}
+\item Stáhnout template na \href{https://github.com/sadda/uwb-fee-report}{Github} stránkách.
+\item Otevřít si projekt v \href{https://www.overleaf.com/read/nhmrwnfykqpf\#940003}{Overleafu} a projekt zkopírovat (Menu $\rightarrow$ Create a copy).
+\end{itemize}
+V obou případech se edituje soubor \texttt{main.tex}.
+
+\vspace{5mm}
+
+Pro dotazy použijte diskuzní fórum na výše zmíněném Github úložišti. Pro reportování chyb nebo zlepšení funkčnosti šablony založte issue nebo pull request tamtéž.
+\end{frame}
+
+
+
+\begin{frame}{Použití šablony}
+Šablona je dokumentována přímo v \texttt{main.tex} souboru. V preambuli je nutné specifikovat \texttt{lang=cz} nebo \texttt{lang=en}, což změní jména obrázků, tabulek, literatury a dalších do správného jazyka.
+
+\vspace{5mm}
+
+Parametry \texttt{title}, \texttt{author}, \texttt{releasedate}, \texttt{department}, \texttt{reporttype}, \texttt{leader}, \texttt{reportdedication}, \texttt{customer}, \texttt{support} jsou povinné. Parametry \texttt{reportnumber}, \texttt{classification}, \texttt{confidential} jsou volitelné a mohou se smazat.
+\end{frame}
+
+\begin{frame}
+   \usebeamertemplate{last page}
+\end{frame}
+
+
+
+\end{document}
+
+
