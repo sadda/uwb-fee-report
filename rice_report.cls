@@ -266,7 +266,7 @@
 
 \renewcommand{\arraystretch}{1.1}
 \renewcommand{\familydefault}{\sfdefault}
-\spacing{1.4}
+\setstretch{1.4}
 
 % Handle header and move page number to right
 \clearmainofpairofpagestyles
