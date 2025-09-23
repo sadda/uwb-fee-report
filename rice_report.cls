@@ -70,19 +70,13 @@
 \fi\fi
 
 \RequirePackage{tikz}
-\RequirePackage{pdfpages}
-\RequirePackage{listings}
 \RequirePackage[hmargin=0.98in, tmargin=-.1in, bmargin=0.5in, includehead, includefoot, headsep=2cm]{geometry}
-\RequirePackage{colortbl}
-\RequirePackage{array}
 \RequirePackage{url}
-\RequirePackage{graphicx}
 \RequirePackage{setspace}
 \RequirePackage[singlespacing=true,automark]{scrlayer-scrpage}
 \RequirePackage{lastpage}
 \RequirePackage[small,bf]{caption}
 \RequirePackage{sansmath}
-\RequirePackage{mwe}
 \sansmath
 \RequirePackage{iftex}
 \ifPDFTeX
