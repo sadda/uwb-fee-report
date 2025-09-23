@@ -1,56 +1,54 @@
-\documentclass{rice_report}
+% Choose the correct language
+\documentclass[lang=cz]{rice_report}
+%\documentclass[lang=en]{rice_report}
 
-\usepackage[utf8]{inputenc}
+% Add the desired packages
 \usepackage{graphicx}
+\usepackage{mwe}
 
 % The following arguments are compulsory and must be present
 \title{Název}
 \author{Autor}
 \releasedate{23. 9. 2025}
-\department{RICE}
-\rtype{Řešitelé}
+\department{RICE, tým Průmyslová informatika}
+\reporttype{Výzkumná zpráva}
 \leader{Hlavní řešitel}
 \reportdedication{Tato zpráva vznikla s podporou projektu No. XXX.}
 \customer{Zákazník}
 \support{Kontaktní osoba \\ \texttt{email@fel.zcu.cz}}
 % The following arguments are optional and can be deleted.
-\rrnumber{123}
+\reportnumber{123}
 \classification{1.2.3}
+\confidential{CONFIDENTIAL}
 
+% The abstract and keywords are automatically placed at the second page.
 \abstract{Anotace.}
-
 \keywords{Klíčová slova.}
-
 \titleen{Název v angličtině.}
-
 \abstracten{Anotace v angličtině..}
-
 \keywordsen{Klíčová slova v angličtině.}
 
-\usepackage{mwe}
 
 \begin{document}
-
-% Comment out the required language
-\setczlang
-% \setenlang
 
 \maketitle
 \makesecpage
 
+% Comment out if not required
 \tableofcontents
 
 \section{Úvod}
 
-Toto je text výzkumné zprávy. \cref{table:test} ukazuje
+Toto je text výzkumné zprávy. Pro reference používejte příkaz \texttt{Cref}, který automaticky referuje jako \Cref{fig:test}. Pro tyto reference se automaticky mění popisky do správného jazyka, stejně jako při použití literatury \cite{book}.
 
 \begin{figure}[!ht]
+\centering
 \includegraphics[width=3cm]{example-image-a}
-\caption{???}
-\label{???}
+\caption{Popis obrázku}
+\label{fig:test}
 \end{figure}
 
-\section{Oddíl}
+\section{Výsledky}
 
 \subsection{Oddíl 1}
 
@@ -60,8 +58,7 @@ Text.
 
 Text.
 
-\begin{thebibliography}{9}
-\bibitem{key1} Author, \emph{Title}, Publisher, Year.
-\end{thebibliography}
+\bibliographystyle{abbrv}
+\bibliography{main}
 
 \end{document}
