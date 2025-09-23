@@ -27,7 +27,6 @@
     \renewcommand{\listtablename}{Seznam tabulek}
     \renewcommand{\refname}{Literatura}
     \renewcommand{\bibname}{Literatura}
-	\def\ListOfShortTran{Seznam symbolů a zkratek}
   }
   \@ifpackageloaded{biblatex}{
     \DefineBibliographyStrings{czech}{
@@ -51,7 +50,6 @@
     \renewcommand{\listtablename}{List of Tables}
     \renewcommand{\refname}{References}
     \renewcommand{\bibname}{References}
-	\def\ListOfShortTran{List of Symbols and Shortcuts}
   }
   \@ifpackageloaded{biblatex}{
     \DefineBibliographyStrings{english}{
@@ -70,6 +68,7 @@
 \fi\fi
 
 \RequirePackage{tikz}
+\RequirePackage{xcolor}
 \RequirePackage[hmargin=0.98in, tmargin=-.1in, bmargin=0.5in, includehead, includefoot, headsep=2cm]{geometry}
 \RequirePackage{url}
 \RequirePackage{setspace}
@@ -87,12 +86,6 @@
 
 \makeatletter
 
-\def\czlang{cz}
-\def\enlang{en}
-\newcommand\rok[1]{\year=#1}
-\def\copyrightstr{}
-\newcommand{\setcopyright}[1]{\def\copyrightstr{#1}}
-
 % Define variables from the main manuscript
 \newcommand{\releasedate}[1]{\def\@releasedate{#1}}
 \newcommand{\department}[1]{\def\@department{#1}}
@@ -106,24 +99,12 @@
 \newcommand{\reportdedication}[1]{\def\@reportdedication{#1}}
 
 % Define colors
-\definecolor{fel_seda}{rgb}{0.7255,0.7765,0.8118}%185,198,207
 \definecolor{fel_modra}{rgb}{0.2667,0.4627,0.6039} %68,118,154
-\definecolor{fel_zluta}{rgb}{1.0000,0.7059,0.2980}%255,180,76
 
 % Define variables for Czech
 \newcommand{\setczlang}{
-	\edef\actlang{\czlang}
-	\def\RefTrans{Literatura}
 	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header_cz.png}
 	\pgfdeclareimage[width=\paperwidth]{footer}{media/footer.png}
-	\setcopyright{ZČU FEL RICE \the\year}
-	\def\ChangesTrans{\textbf{Popis změny}}
-	\def\NameTrans{\textbf{Jméno}}	
-	\def\RevTrans{Historie revizí}
-	\def\ChapterTrans{\textbf{Kapitola}}
-	\def\IntroTrans{Úvod}
-	\def\OutroTrans{Závěr}
-	\def\DateRev{\textbf{Datum}}	
 	\def\DepartTrans{\textbf{Pracoviště:}}	
 	\def\ReportTrans{\textbf{Číslo dokumentu:}}	
 	\def\ReportTypeTrans{\textbf{Typ zprávy:}}	
@@ -148,18 +129,8 @@
 
 % Define variables for English
 \newcommand{\setenlang}{
-	\edef\actlang{\enlang}
-	\def\RefTrans{References}
 	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header_en.png}
 	\pgfdeclareimage[width=\paperwidth]{footer}{media/footer.png}
-	\setcopyright{UWB FEE RICE \the\year}
-	\def\IntroTrans{Introduction}
-	\def\OutroTrans{Conclusion}
-	\def\ChangesTrans{\textbf{Description of change}}	
-	\def\ChapterTrans{\textbf{Chapter}}
-	\def\DateRev{\textbf{Date}}	
-	\def\NameTrans{\textbf{Name}}	
-	\def\RevTrans{Revision history}
 	\def\DepartTrans{\textbf{Department:}}	
 	\def\ReportTrans{\textbf{Research report no.:}}	
 	\def\ReportTypeTrans{\textbf{Report type:}}	
@@ -262,16 +233,16 @@
 
 % Make the second page
 \newcommand{\makesecpage}{
-	\ifx \actlang \czlang
+	\if@czlang
 		\section*{Anotace} \abstractvalue
 		\section*{Klíčová slova} \keywordsvalue
 		\section*{Název zprávy v anglické jazyce / Report title} \titleentext
 		\section*{Anotace v anglickém jazyce / Abstract} \abstractvalueen
 		\section*{Klíčová slova v anglickém jazyce / Keywords} \keywordsvalueen
-	\else
+	\else\if@enlang
 		\section*{Abstract} \abstractvalue
 		\section*{Keywords} \keywordsvalue
-	\fi
+	\fi\fi
 	\pagebreak
 }
 
