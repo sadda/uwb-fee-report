@@ -6,7 +6,6 @@
 
 \LoadClass[titlepage=true,12pt,czech]{scrartcl}
 
-\RequirePackage[utf8]{inputenc}
 \RequirePackage{tikz}
 \RequirePackage{pdfpages}
 \RequirePackage{listings}
@@ -24,10 +23,11 @@
 \RequirePackage{cleveref}
 \RequirePackage{mwe}
 \sansmath
-\ifxetex
-\else
-	\RequirePackage{lmodern}
+\RequirePackage{iftex}
+\ifPDFTeX
+	\RequirePackage[utf8]{inputenc}
 	\RequirePackage[T1]{fontenc}
+	\RequirePackage{lmodern}
 \fi
 
 \makeatletter
