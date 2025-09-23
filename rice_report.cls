@@ -87,15 +87,15 @@
 \makeatletter
 
 % Define default values for macros which can be deleted
-\def\@rrnumber{}
+\def\@reportnumber{}
 \def\@classification{}
 \def\@confidential{}
 
 % Define variables from the main manuscript
 \newcommand{\releasedate}[1]{\def\@releasedate{#1}}
 \newcommand{\department}[1]{\def\@department{#1}}
-\newcommand{\rrnumber}[1]{\def\@rrnumber{#1}}
-\newcommand{\rtype}[1]{\def\@rtype{#1}}
+\newcommand{\reportnumber}[1]{\def\@reportnumber{#1}}
+\newcommand{\reporttype}[1]{\def\@reporttype{#1}}
 \newcommand{\leader}[1]{\def\@leader{#1}}
 \newcommand{\revision}[1]{\def\@revision{#1}}
 \newcommand{\support}[1]{\def\@support{#1}}
@@ -199,10 +199,10 @@
 	\vspace{2em}
 	\begin{tabular}{p{0.3\linewidth}p{0.7\linewidth}}
 		\DepartTrans & \@department \tabularnewline
-        \ifx\@rrnumber\@empty\else
-            \ReportTrans & \@rrnumber \tabularnewline
+        \ifx\@reportnumber\@empty\else
+            \ReportTrans & \@reportnumber \tabularnewline
         \fi
-		\ReportTypeTrans&  \@rtype \tabularnewline
+		\ReportTypeTrans&  \@reporttype \tabularnewline
 		\GroupTrans & \@author \tabularnewline
 		\LeaderTrans &\@leader \tabularnewline
 		\PagesTrans & \pageref*{LastPage}\tabularnewline
