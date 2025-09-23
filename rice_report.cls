@@ -1,10 +1,73 @@
 \listfiles
 \ProvidesClass{rice_report}[2025/09/23 v1.0 RICE report (RICE-S-01-2017-P02-v2)]
 
+% Declare the Czech or Language options
+\newif\if@czlang
+\newif\if@enlang
+\DeclareOption{lang=cz}{\@czlangtrue}
+\DeclareOption{lang=en}{\@enlangtrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
+\LoadClass[titlepage=true,12pt]{scrartcl}
 
-\LoadClass[titlepage=true,12pt,czech]{scrartcl}
+% Load babel first
+\def\@babelopts{main=czech,english,shorthands=off}
+\if@enlang
+  \def\@babelopts{main=english,czech,shorthands=off}
+\fi
+\RequirePackage[\@babelopts]{babel}
+\RequirePackage{cleveref}
+
+% Fix the Czech/English names due to too many packages
+\if@czlang
+  \addto\captionsczech{
+    \renewcommand{\figurename}{Obr.}
+    \renewcommand{\tablename}{Tab.}
+    \renewcommand{\listfigurename}{Seznam obrázků}
+    \renewcommand{\listtablename}{Seznam tabulek}
+    \renewcommand{\refname}{Literatura}
+    \renewcommand{\bibname}{Literatura}
+	\def\ListOfShortTran{Seznam symbolů a zkratek}
+  }
+  \@ifpackageloaded{biblatex}{
+    \DefineBibliographyStrings{czech}{
+      bibliography = {Literatura},
+      references  = {Literatura},
+    }
+  }{}
+  \crefname{equation}{rovnice}{rovnice}
+  \Crefname{equation}{Rovnice}{Rovnice}
+  \crefname{figure}{obr.}{obr.}
+  \Crefname{figure}{Obr.}{Obr.}
+  \crefname{table}{tab.}{tab.}
+  \Crefname{table}{Tab.}{Tab.}
+  \crefname{section}{odd.}{odd.}
+  \Crefname{section}{Odd.}{Odd.}  
+\else\if@enlang
+  \addto\captionsenglish{
+    \renewcommand{\figurename}{Fig.}
+    \renewcommand{\tablename}{Tab.}
+    \renewcommand{\listfigurename}{List of Figures}
+    \renewcommand{\listtablename}{List of Tables}
+    \renewcommand{\refname}{References}
+    \renewcommand{\bibname}{References}
+	\def\ListOfShortTran{List of Symbols and Shortcuts}
+  }
+  \@ifpackageloaded{biblatex}{
+    \DefineBibliographyStrings{english}{
+      bibliography = {References},
+      references  = {References},
+    }
+  }{}
+  \crefname{equation}{equation}{equations}
+  \Crefname{equation}{Equation}{Equations}
+  \crefname{figure}{fig.}{figs.}
+  \Crefname{figure}{Fig.}{Figs.}
+  \crefname{table}{tab.}{tabs.}
+  \Crefname{table}{Tab.}{Tabs.}
+  \crefname{section}{sec.}{secs.}
+  \Crefname{section}{Sec.}{Secs.}
+\fi\fi
 
 \RequirePackage{tikz}
 \RequirePackage{pdfpages}
@@ -15,12 +78,10 @@
 \RequirePackage{url}
 \RequirePackage{graphicx}
 \RequirePackage{setspace}
-\RequirePackage[czech, english, shorthands=off]{babel}
 \RequirePackage[singlespacing=true,automark]{scrlayer-scrpage}
 \RequirePackage{lastpage}
 \RequirePackage[small,bf]{caption}
 \RequirePackage{sansmath}
-\RequirePackage{cleveref}
 \RequirePackage{mwe}
 \sansmath
 \RequirePackage{iftex}
@@ -62,9 +123,6 @@
 	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header_cz.png}
 	\pgfdeclareimage[width=\paperwidth]{footer}{media/footer.png}
 	\setcopyright{ZČU FEL RICE \the\year}
-	\selectlanguage{czech}
-	\renewcommand{\lstlistingname}{Výp.}
-	\def\ListOfShortTran{Seznam symbolů a zkratek}
 	\def\ChangesTrans{\textbf{Popis změny}}
 	\def\NameTrans{\textbf{Jméno}}	
 	\def\RevTrans{Historie revizí}
@@ -92,14 +150,6 @@
 		306 14 Plzeň
 	}
     \def \filename{{\small{soubor:\ \jobname .tex}}}
-	\crefname{equation}{rovnice}{rovnice}
-	\Crefname{equation}{Rovnice}{Rovnice}
-	\crefname{figure}{obr.}{obrázky}
-	\Crefname{figure}{Obr.}{Obrázky}
-	\crefname{table}{tab.}{tabulky}
-	\Crefname{table}{Tab.}{Tabulky}
-	\crefname{section}{oddíl}{oddíly}
-	\Crefname{section}{Oddíl}{Oddíly}
 	}
 
 % Define variables for English
@@ -109,9 +159,6 @@
 	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header_en.png}
 	\pgfdeclareimage[width=\paperwidth]{footer}{media/footer.png}
 	\setcopyright{UWB FEE RICE \the\year}
-	\selectlanguage{english}
-	\renewcommand{\lstlistingname}{Lst.}
-	\def\ListOfShortTran{List of Symbols and Shortcuts}
 	\def\IntroTrans{Introduction}
 	\def\OutroTrans{Conclusion}
 	\def\ChangesTrans{\textbf{Description of change}}	
@@ -253,22 +300,13 @@
 \cfoot{}
 \ofoot*{\pagemark}
 
-% Fix the bibliography name due to too many packages
-\AtBeginDocument{%
-  \addto\captionsczech{
-    \renewcommand{\refname}{Literatura}
-    \renewcommand{\bibname}{Literatura}
-  }
-  \addto\captionsenglish{
-    \renewcommand{\refname}{References}
-    \renewcommand{\bibname}{References}
-  }
-  \@ifpackageloaded{biblatex}{
-    \DefineBibliographyStrings{czech}{
-      bibliography = {Literatura},
-      references  = {Literatura},
-    }
-  }{}
-}
+% Activate the correct language
+\if@czlang
+  \setczlang
+\else\if@enlang
+  \setenlang
+\else
+  \ClassError{rice_report}{Unknown language option}{You must select lang=cz or lang=en at the first line of the document.}%
+\fi\fi
 
 \makeatother
