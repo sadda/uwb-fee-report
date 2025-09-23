@@ -86,6 +86,11 @@
 
 \makeatletter
 
+% Define default values for macros which can be deleted
+\def\@rrnumber{}
+\def\@classification{}
+\def\@confidential{}
+
 % Define variables from the main manuscript
 \newcommand{\releasedate}[1]{\def\@releasedate{#1}}
 \newcommand{\department}[1]{\def\@department{#1}}
