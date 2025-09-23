@@ -97,6 +97,7 @@
 \newcommand{\customer}[1]{\def\@customer{#1}}
 \newcommand{\classification}[1]{\def\@classification{#1}}
 \newcommand{\reportdedication}[1]{\def\@reportdedication{#1}}
+\newcommand{\confidential}[1]{\def\@confidential{#1}}
 
 % Define colors
 \definecolor{fel_modra}{rgb}{0.2667,0.4627,0.6039} %68,118,154
@@ -222,7 +223,10 @@
     \ifx\@reportdedication\@empty\else
       \vspace{1em}
       \begin{center}
-        \textbf{\@reportdedication}
+        \textbf{\@reportdedication} \\ \vspace{3mm}
+        \ifx\@confidential\@empty\else
+		    \textbf{\@confidential}
+        \fi
       \end{center}
       \vspace{1em}
     \fi
