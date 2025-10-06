@@ -16,6 +16,7 @@
   \def\@babelopts{main=english,czech,shorthands=off}
 \fi
 \RequirePackage[\@babelopts]{babel}
+\RequirePackage{amsmath}
 \RequirePackage{cleveref}
 
 % Fix the Czech/English names due to too many packages
