@@ -110,7 +110,7 @@
 
 % Define variables for Czech
 \newcommand{\setczlang}{
-	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header_cz.png}
+	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header-cz.png}
 	\pgfdeclareimage[width=\paperwidth]{footer}{media/footer.png}
 	\def\DepartTrans{\textbf{Pracoviště:}}	
 	\def\ReportTrans{\textbf{Číslo dokumentu:}}	
@@ -136,7 +136,7 @@
 
 % Define variables for English
 \newcommand{\setenlang}{
-	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header_en.png}
+	\pgfdeclareimage[width=\paperwidth]{title_header}{media/header-en.png}
 	\pgfdeclareimage[width=\paperwidth]{footer}{media/footer.png}
 	\def\DepartTrans{\textbf{Department:}}	
 	\def\ReportTrans{\textbf{Research report no.:}}	
