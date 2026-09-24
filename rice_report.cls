@@ -184,12 +184,12 @@
 \def\keywordsvalue{Keywords are always needed, please use command \textbackslash keywords\{\} to define them.}
 \newcommand{\keywords}[1]{\def\keywordsvalue{#1}}
 
-% Needed in Czech version (title EN, abstract EN, keywords EN)
-\def\titleentext{Title in English is needed, pleasu use command \textbackslash titleen\{\} to define it.}
+% Optional in Czech version (title EN, abstract EN, keywords EN), omitted when empty
+\def\titleentext{}
 \def\titleen#1{\gdef\titleentext{#1}}
-\def\abstractvalueen{Abstract in English is needed, please use command \textbackslash abstracten\{\} to define it.}
+\def\abstractvalueen{}
 \newcommand{\abstracten}[1]{\def\abstractvalueen{#1}}
-\def\keywordsvalueen{Keywords in English are needed, please use command \textbackslash keywordsen\{\} to define them.}
+\def\keywordsvalueen{}
 \newcommand{\keywordsen}[1]{\def\keywordsvalueen{#1}}
 
 
@@ -263,9 +263,15 @@
 	\if@czlang
 		\section*{Anotace} \abstractvalue
 		\section*{Klíčová slova} \keywordsvalue
-		\section*{Název zprávy v anglické jazyce / Report title} \titleentext
-		\section*{Anotace v anglickém jazyce / Abstract} \abstractvalueen
-		\section*{Klíčová slova v anglickém jazyce / Keywords} \keywordsvalueen
+		\ifx\titleentext\@empty\else
+			\section*{Název zprávy v anglické jazyce / Report title} \titleentext
+		\fi
+		\ifx\abstractvalueen\@empty\else
+			\section*{Anotace v anglickém jazyce / Abstract} \abstractvalueen
+		\fi
+		\ifx\keywordsvalueen\@empty\else
+			\section*{Klíčová slova v anglickém jazyce / Keywords} \keywordsvalueen
+		\fi
 	\else\if@enlang
 		\section*{Abstract} \abstractvalue
 		\section*{Keywords} \keywordsvalue
