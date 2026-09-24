@@ -148,7 +148,6 @@
 		Univerzitní 8	\\
 		306 14 Plzeň
 	}
-    \def \filename{{\small{soubor:\ \jobname .tex}}}
 	}
 
 % Define variables for English
@@ -174,9 +173,7 @@
         Univerzitní 8	\\
         306 14 Plzeň
 	}
-    \def \filename{{\small{file:\ \jobname .tex}}}
 	}	
-\def \templatename{{\small{RICE-S-01-2017-P02}}}
 
 % Always needed (abstract, keywords)
 \def\abstractvalue{Abstract is always needed, please use command \textbackslash abstract\{\} to define it.}
@@ -203,8 +200,6 @@
 			      {\begin{tikzpicture}[remember picture, overlay]
 					\pgftext[at=\pgfpoint{0cm}{-5.5cm},left,base]{\pgfuseimage{title_header}}
 					\pgftext[at=\pgfpoint{0cm}{-\paperheight},left,base]{\pgfuseimage{footer}}
-                \node[anchor=west, xshift=2.5cm, yshift=-0.915\paperheight] {\mbox{\filename}};
-				\node[anchor=east, xshift=-2.5cm, yshift=-0.915\paperheight] at (current page.north east) {\mbox{\templatename}};
 				\node[anchor=west, xshift=2.5cm, yshift=-0.960\paperheight] {\mbox{\FooterTextLeft}};
 				\node[anchor=east, xshift=-2.5cm, yshift=-0.960\paperheight] at (current page.north east) {\mbox{\FooterTextRight}};
 	       \end{tikzpicture}
