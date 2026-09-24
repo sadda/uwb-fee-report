@@ -42,7 +42,14 @@
   \crefname{table}{tab.}{tab.}
   \Crefname{table}{Tab.}{Tab.}
   \crefname{section}{odd.}{odd.}
-  \Crefname{section}{Odd.}{Odd.}  
+  \Crefname{section}{Odd.}{Odd.}
+  \renewcommand{\crefrangeconjunction}{ až~}
+  \renewcommand{\crefpairconjunction}{ a~}
+  \renewcommand{\crefmiddleconjunction}{, }
+  \renewcommand{\creflastconjunction}{ a~}
+  \renewcommand{\crefpairgroupconjunction}{ a~}
+  \renewcommand{\crefmiddlegroupconjunction}{, }
+  \renewcommand{\creflastgroupconjunction}{ a~}
 \else\if@enlang
   \addto\captionsenglish{
     \renewcommand{\figurename}{Fig.}
