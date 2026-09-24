@@ -43,13 +43,14 @@
   \Crefname{table}{Tab.}{Tab.}
   \crefname{section}{odd.}{odd.}
   \Crefname{section}{Odd.}{Odd.}
-  \renewcommand{\crefrangeconjunction}{ až~}
-  \renewcommand{\crefpairconjunction}{ a~}
-  \renewcommand{\crefmiddleconjunction}{, }
-  \renewcommand{\creflastconjunction}{ a~}
-  \renewcommand{\crefpairgroupconjunction}{ a~}
-  \renewcommand{\crefmiddlegroupconjunction}{, }
-  \renewcommand{\creflastgroupconjunction}{ a~}
+  % Conjunctions for multiple references (cleveref defaults to English)
+  \newcommand{\crefrangeconjunction}{ až~}
+  \newcommand{\crefpairconjunction}{ a~}
+  \newcommand{\crefmiddleconjunction}{, }
+  \newcommand{\creflastconjunction}{ a~}
+  \newcommand{\crefpairgroupconjunction}{ a~}
+  \newcommand{\crefmiddlegroupconjunction}{, }
+  \newcommand{\creflastgroupconjunction}{ a~}
 \else\if@enlang
   \addto\captionsenglish{
     \renewcommand{\figurename}{Fig.}
