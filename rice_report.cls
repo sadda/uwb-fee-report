@@ -99,6 +99,15 @@
 \def\@classification{}
 \def\@confidential{}
 
+% Define default values for compulsory macros (shown when missing)
+\def\@releasedate{Release date is needed, please use command \textbackslash releasedate\{\} to define it.}
+\def\@department{Department is needed, please use command \textbackslash department\{\} to define it.}
+\def\@reporttype{Report type is needed, please use command \textbackslash reporttype\{\} to define it.}
+\def\@leader{Leader is needed, please use command \textbackslash leader\{\} to define it.}
+\def\@support{Contact person is needed, please use command \textbackslash support\{\} to define it.}
+\def\@customer{Customer is needed, please use command \textbackslash customer\{\} to define it.}
+\def\@reportdedication{}
+
 % Define variables from the main manuscript
 \newcommand{\releasedate}[1]{\def\@releasedate{#1}}
 \newcommand{\department}[1]{\def\@department{#1}}
@@ -191,8 +200,8 @@
 			\begin{tikzpicture}[remember picture,overlay]
 			    \node[yshift=0](titul) at (current page.north west)
 			      {\begin{tikzpicture}[remember picture, overlay]
-					\pgftext[at=\pgfpoint{0cm}{-5.5cm},left,base]{\pgfuseimage{title_header}} ;
-					\pgftext[at=\pgfpoint{0cm}{-\paperheight},left,base]{\pgfuseimage{footer}} ;
+					\pgftext[at=\pgfpoint{0cm}{-5.5cm},left,base]{\pgfuseimage{title_header}}
+					\pgftext[at=\pgfpoint{0cm}{-\paperheight},left,base]{\pgfuseimage{footer}}
                 \node[anchor=west, xshift=2.5cm, yshift=-0.915\paperheight] {\mbox{\filename}};
 				\node[anchor=east, xshift=-2.5cm, yshift=-0.915\paperheight] at (current page.north east) {\mbox{\templatename}};
 				\node[anchor=west, xshift=2.5cm, yshift=-0.960\paperheight] {\mbox{\FooterTextLeft}};
